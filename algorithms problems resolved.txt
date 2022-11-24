@@ -1,0 +1,74 @@
+11/23
+* Complete the solution so that it reverses the string passed into it. 
+'world'  =>  'dlrow'
+
+
+function solution(str){
+    let inverse = ""
+    for (let i = str.length - 1; i >= 0; i--) {
+
+        inverse += str[i]
+        console.log(i)
+    }
+    return inverse
+}
+
+* Clock shows h hours, m minutes and s seconds after midnight.
+
+Your task is to write a function which returns the time since midnight in milliseconds.
+
+
+
+function past(h, m, s){
+      if (h >= 0 && h <= 23 && m >= 0 && m <= 59 && s >= 0 && s <= 59) {
+        let second = 1000 // a second has 1000 miliseconds
+        let minute = 60 * second // a minute has 60 seconds
+        let hour = 3600 * second // an hour has 3600 seconds
+
+        return s * second + m * minute + h * hour
+    }
+}
+
+* Simple, remove the spaces from the string, then return the resultant string.
+
+function noSpace(x) {
+    let noSpaceWord = ""
+    for (let i = 0; i < x.length; i++) {
+        if (x[i] != " ") {
+            noSpaceWord += x[i]
+        }
+    }
+    return noSpaceWord
+}
+
+* Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new 
+gymnastics discipline, which works differently.
+Each team competes 3 times, and then the average of the 3 scores is calculated (so 
+one average score per team).
+A team only wins if it has at least double the average score of the other team. 
+Otherwise, no team wins
+
+let averageScore = (score1, score2, score3) => (score1 + score2 + score3) / 3
+
+
+let dolphinScore = averageScore(85, 54, 41)
+let pandaScore = averageScore(23, 34, 27)
+
+console.log(dolphinScore)
+console.log(pandaScore)
+
+function checkWinner(dolphinScore, pandaScore) {
+    if (dolphinScore > pandaScore && dolphinScore / pandaScore >= 2) {
+        return `Dolphin win ${dolphinScore} vs ${pandaScore}.`
+    }
+
+    if (pandaScore > dolphinScore && pandaScore / dolphinScore >= 2) {
+        return `Panda win ${pandaScore} vs ${dolphinScore}.`
+    }
+
+    return "Draw!"
+
+}
+
+console.log(checkWinner(dolphinScore, pandaScore))
+
