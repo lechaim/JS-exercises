@@ -1,48 +1,96 @@
-// var MarkMass = 78
-// var MarkHeight = 1.69
+/*  let table= [[8, 7, 9],
+            [6, 7, 6],
+            [3, 2, 5]];   
 
-// var JohnMass = 92
-// var JohnHeight = 1.95
+ console.log(table[0]); Returns [ 8, 7, 9 ] */
 
-// var MarkBMI = MarkMass / MarkHeight ** 2
-// var JohnBMI = JohnMass / JohnHeight ** 2
+/*
+ let table = [[0,0,0,0,0,0,0,0],
+              [0,0,0,2,0,0,0,0],
+              [0,0,0,0,0,0,0,0],
+              [0,0,0,0,0,0,0,0],
+              [0,0,0,0,0,0,0,0],
+              [0,0,0,0,0,0,0,0],
+              [0,0,0,0,0,0,0,0],
+              [0,0,0,1,0,0,0,0]];
 
+let tableDraw = ""
 
-// let markHigherBMI = MarkBMI > JohnBMI
-// console.log(MarkBMI, JohnBMI, markHigherBMI)
-
-// var MarkMass = 95
-// var MarkHeight = 1.88
-
-// var JohnMass = 85
-// var JohnHeight = 1.76
-
-// var MarkBMI = MarkMass / MarkHeight ** 2
-// var JohnBMI = JohnMass / JohnHeight ** 2
-
-// markHigherBMI = MarkBMI > JohnBMI
-// console.log(MarkBMI, JohnBMI, markHigherBMI)
-
-let averageScore = (score1, score2, score3) => (score1 + score2 + score3) / 3
-
-
-let dolphinScore = averageScore(85, 54, 41)
-let pandaScore = averageScore(23, 34, 27)
-
-console.log(dolphinScore)
-console.log(pandaScore)
-
-function checkWinner(dolphinScore, pandaScore) {
-    if (dolphinScore > pandaScore && dolphinScore / pandaScore >= 2) {
-        return `Dolphin win ${dolphinScore} vs ${pandaScore}.`
-    }
-
-    if (pandaScore > dolphinScore && pandaScore / dolphinScore >= 2) {
-        return `Panda win ${pandaScore} vs ${dolphinScore}.`
-    }
-
-    return "Draw!"
-
+function move(){
+    
 }
 
-console.log(checkWinner(dolphinScore, pandaScore))
+for(let pointColumn = 0; pointColumn <= 8; pointColumn++){
+
+    tableDraw += "+---+---+---+---+---+---+---+---+" +"\n";
+
+    if(pointColumn == 8){
+        continue;
+    }
+
+    for(let pointRow = 0; pointRow < 8; pointRow++){
+
+        const symbol = table[pointColumn][pointRow];
+        // display table empty spaces
+        let symbolsList = [" ", "I", "Y"];
+
+        if(pointRow){
+            tableDraw += ` ${symbolsList[symbol]} |`;
+        }
+        else{
+            tableDraw += `| ${symbolsList[symbol]} |`;
+        };
+        
+        // this will add a new line at the end of the 8th row
+        if (pointRow == 7){
+            tableDraw += "\n";
+        };
+    }
+}
+console.log(tableDraw);
+
+/* 
+function drawHorizontal(){
+    let horizontal = ""
+    for (let h = 0; h < 8; h++){
+        h == 0 ? horizontal += "+---+" : horizontal += "---+";
+    }
+
+    console.log(horizontal);
+};
+
+function drawVertical(){
+    let vertical = ""
+    for (let v = 0; v < 8; v++){
+         v == 0 ? vertical += "|   |" : vertical += "   |";
+    }
+    console.log(vertical);
+};
+
+function drawTable(){
+    for (let t = 0; t < 8; t++){
+        drawHorizontal();
+        drawVertical();
+    }
+    drawHorizontal();
+};
+
+drawTable();
+
+
+ */
+
+
+var twoSum = function(nums, target) {
+    for (let a = 0; a < nums.length; a++){
+        for (let b = a+1; b < nums.length; b++){
+
+            if(nums[a] + nums[b] == target){
+                return [a,b]
+            }
+        }
+    }
+};
+
+console.log(twoSum([2,5,5,11], 10))
+

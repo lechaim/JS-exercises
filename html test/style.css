@@ -1,0 +1,7 @@
+div{
+    background-color: aqua;
+}
+
+.characters.info{
+    display: flex;
+}
