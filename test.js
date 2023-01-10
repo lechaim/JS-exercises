@@ -81,16 +81,44 @@ drawTable();
  */
 
 
-var twoSum = function(nums, target) {
-    for (let a = 0; a < nums.length; a++){
-        for (let b = a+1; b < nums.length; b++){
+//let l1 = [1,2,3];
 
-            if(nums[a] + nums[b] == target){
-                return [a,b]
-            }
+
+//console.log(l1[2]);
+
+
+
+var addTwoNumbers = function(l1, l2) {
+
+    let lenght = 0;
+    let newList = [];
+    let counter = 0;
+
+    l1.lenght >= l2.lengt ? lenght = l1.lenght : lenght = l2.lenght; // find the number with biggest or equal number of elements 
+    
+    for(var i = lenght - 1; i >= 0; i--){
+        if (l1[i]  == undefined){
+            l1[i] = 0;
         }
+
+        if (l1[2]  == undefined){
+            l1[2] = 0;
+        }
+
+        sum = l1 + l2 + counter;
+        counter = 0;  // to reset the used counter used in the previous number
+
+        if(sum >= 10) {
+            sum -= 10;
+            counter+= 1;
+        }
+        console.log(sum);
+
+        newList.push(sum); // add the summed number to the new list
+
     }
+    return newList;
+    
 };
 
-console.log(twoSum([2,5,5,11], 10))
-
+console.log(addTwoNumbers([2,4,3], [5,6,4]));
